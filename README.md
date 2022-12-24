@@ -1,6 +1,6 @@
-# react-native-stylesheet-themed
+# React Native Style Sheet Themed
 
-Style sheet themed
+This library allows using themes together with react native style sheet
 
 ## Installation
 
@@ -10,12 +10,60 @@ npm install react-native-stylesheet-themed
 
 ## Usage
 
-```js
-import { multiply } from 'react-native-stylesheet-themed';
+```ts
+// styles.ts
+import { StyleSheetThemed } from 'react-native-stylesheet-themed';
 
-// ...
+export const useStyles = StyleSheetThemed.create((theme) => ({
+  text: {
+    color: theme.text,
+    backgroundColor: theme.primary,
+  },
+}));
 
-const result = await multiply(3, 7);
+// or
+
+export const useStyles = StyleSheetThemed.create({
+  text: {
+    color: 'black',
+    backgroundColor: 'white',
+  },
+});
+```
+
+Import and use hook in your component
+
+```ts
+// Home.tsx
+import React from 'react';
+import { View, Text } from 'react-native';
+
+import { useStyles } from './styles';
+
+export function Home() {
+  const styles = useStyles();
+
+  return (
+    <View style={styles.container}>
+      <Text style={styles.text}>Hello world</Text>
+    </View>
+  );
+}
+```
+
+## Typing
+
+```ts
+// styleSheetThemed.d.ts
+import 'react-native-stylesheet-themed';
+
+import { themes } from '../themes';
+
+type DefaultTheme = typeof themes.light;
+
+declare module 'react-native-stylesheet-themed' {
+  interface Theme extends DefaultTheme {}
+}
 ```
 
 ## Contributing
