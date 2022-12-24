@@ -20,7 +20,6 @@ import { ThemeProvider } from 'react-native-stylesheet-themed';
 
 import { themes } from './themes';
 import { Home } from './screens';
-import { Container } from './components';
 
 type Themes = keyof typeof themes;
 
@@ -34,18 +33,16 @@ export default function App() {
   }
 
   return (
-    <Container>
-      <ThemeProvider
-        theme={currentTheme === 'light' ? themes.light : themes.dark}
-      >
-        <Text>Current theme: {currentTheme}</Text>
-        <Button
-          title={`Change theme to ${oppositeTheme}`}
-          onPress={changeTheme}
-        />
-        <Home />
-      </ThemeProvider>
-    </Container>
+    <ThemeProvider
+      theme={currentTheme === 'light' ? themes.light : themes.dark}
+    >
+      <Text>Current theme: {currentTheme}</Text>
+      <Button
+        title={`Change theme to ${oppositeTheme}`}
+        onPress={changeTheme}
+      />
+      <Home />
+    </ThemeProvider>
   );
 }
 ```
