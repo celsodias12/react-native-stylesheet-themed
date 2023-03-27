@@ -2953,7 +2953,7 @@ cacheable-request@^10.2.1:
   integrity sha512-IWIea8ei1Ht4dBqvlvh7Gs7EYlMyBhlJybLDUB9sadEqHqftmdNieMLIR5ia3vs8gbjj9t8hXLBpUVg3vcQNbg==
   dependencies:
     get-stream "^6.0.1"
-    http-cache-semantics "^4.1.0"
+    http-cache-semantics "^4.1.1"
     keyv "^4.5.2"
     mimic-response "^4.0.0"
     normalize-url "^8.0.0"
